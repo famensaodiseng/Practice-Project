@@ -1,0 +1,44 @@
+.comment {
+    background: #FFF;
+    #border-bottom: red solid;
+    width: 600px;
+    height: 80px;
+}
+
+.comment div img {
+    width: 80px;
+    height: 80px;
+}
+
+.left {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background: blue;
+}
+
+.right {
+    float: right;
+    width: 520px;
+    height: 80px;
+}
+
+#container {
+    position: relative;
+    left: 50%;
+    width: 600px;
+    margin-left: -300px;
+}
+
+#container ul {
+    padding-left: 0px;
+    list-style: none;
+}
+
+#more {
+    background: lightGray;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}

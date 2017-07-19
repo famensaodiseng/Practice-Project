@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论动态加载</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        // 实现数据加载功能
+        function initList(param){
+            $.ajax({
+                type : 'get',
+                data : param,
+                url : 'http://localhost/comment/data.php',
+                dataType : 'json',
+                success : function(data){
+                    if(data == 1){
+                        $('#more').text('没有更多的内容了...');
+                    }
+                    // 渲染评论数据
+                    var tag = '';
+                    $.each(data,function(index,element){
+                        tag += '<div class="comment"><div class="left"><img src="'+element.imgpath+'" /></div><div class="right"><div>'+element.nickname+'</div><div>'+element.content+'</div></div></div><hr />';
+                    });
+                    $('#contentList').append(tag);
+                    // 处理数据加载次数
+                    var nowNum = parseInt($('#last').val()) + 1;
+                    $('#last').val(nowNum);
+                }
+            });
+        }
+        // 页面显示的时候进行初始化
+        initList({
+            last : 0,//表示数据加载的次数
+            amount : 2//表示每次加载的条数
+        });
+        // 绑定事件
+        $('#more').click(function(){
+            // 点击加载更多按钮时触发新的加载功能
+            initList({
+                last : $('#last').val(),
+                amount : 2
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+<div style="height:300px;"></div>
+<div id="container">
+<ul id="contentList">
+    <!-- <li class="comment">
+        <div class="left"><img src="./g1.jpg"></div>
+        <div class="right">
+            <div>一篇工作总结</div>
+            <div>上述知情人士透露，目前业内一些公司准备了专门的名单从电信运营商定向挖人，其筹码是数倍于运营商的薪酬、股权激励以及企业运营决策的自主权。</div>
+        </div>
+    </li>
+    <hr>
+    <li class="comment">
+        <div class="left"><img src="./g1.jpg"></div>
+        <div class="right">
+            <div>一篇工作总结</div>
+            <div>上述知情人士透露，目前业内一些公司准备了专门的名单从电信运营商定向挖人，其筹码是数倍于运营商的薪酬、股权激励以及企业运营决策的自主权。</div>
+        </div>
+    </li>
+    <hr> -->
+</ul>
+<div id="more">加载更多...</div>
+<input type="hidden" id="last" value="0">
+</div>
+
+</body>
+</html>

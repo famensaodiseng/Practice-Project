@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax增删改查案例</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="mygrid.js"></script>
+</head>
+
+<body>
+    <div id="infoArea">
+        <form id="formId">
+            <div id="opeInfo">图书信息管理</div>
+            <div>
+                <input type="hidden" id="id" name="id">
+                <span>图书名称</span>
+                <span><input type="text" id="bookName" name="bookName"></span>
+            </div>
+            <div>
+                <span>图书作者</span><span>
+                <input type="text" id="bookAuthor" name="bookAuthor"></span>
+            </div>
+            <div><span>是否推荐</span>
+                <span>
+                    是<input type="radio" name="recommend" value="1">
+                    否<input type="radio" name="recommend" value="2">
+                </span>
+            </div>
+            <div>
+                <span>图书分类</span>
+                <span>
+                    <input type="checkbox" name="category[]" value="1">计算机
+                    <input type="checkbox" name="category[]" value="2">文学
+                    <input type="checkbox" name="category[]" value="3">会计
+                </span>
+            </div>
+            <div>
+                <span>图书描述</span>
+                <textarea id="bookDesc" name="bookDesc" rows="3" cols="20"></textarea>
+            </div>
+            <div>
+                <input id="btn" type="button" value="提交">
+            </div>
+        </form>
+    </div>
+    <div id="bookList">
+        <table cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>图书名称</th>
+                    <th>图书作者</th>
+                    <th>图书分类</th>
+                    <th>是否推荐</th>
+                    <th>图书描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>三国演义</td>
+                    <td>罗贯中</td>
+                    <td>文学</td>
+                    <td>是</td>
+                    <td>杀伐纷争的年代</td>
+                    <td><a href="javascript:;">修改</a>|<a href="javascript:;">删除</a></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

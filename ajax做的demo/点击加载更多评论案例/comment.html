@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评论动态加载</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery.js"></script>
+</head>
+<body>
+<div style="height:300px;"></div>
+<div id="container">
+<ul id="contentList">
+
+	<!-- <li class="comment">
+		<div class="left"><img src="./g1.jpg"></div>
+		<div class="right">
+			<div>一篇工作总结</div>
+			<div>上述知情人士透露，目前业内一些公司准备了专门的名单从电信运营商定向挖人，其筹码是数倍于运营商的薪酬、股权激励以及企业运营决策的自主权。</div>
+		</div>
+	</li>
+	<li class="comment">
+		<div class="left"><img src="./g1.jpg"></div>
+		<div class="right">
+			<div>一篇工作总结</div>
+			<div>上述知情人士透露，目前业内一些公司准备了专门的名单从电信运营商定向挖人，其筹码是数倍于运营商的薪酬、股权激励以及企业运营决策的自主权。</div>
+		</div>
+	</li>
+	<hr> -->
+	
+</ul>
+<div id="more">加载更多...</div>
+<input type="hidden" id="last" value="0">
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$('#more').click(function(){
+			var last = $('#last').val();
+			var url = './data.php?last='+last+'&amount=2';
+			queryComment(url);
+		});
+        var last = $('#last').val();
+        var url = './data.php?last='+last+'&amount=2';
+        queryComment(url);
+	});
+
+	function queryComment(url){
+		$.ajax({
+			type : "get",
+			async: true,
+			url : url,
+			dataType : "json",
+			success : function(data){
+				if(data == 1){
+					$('#more').html('没有更多评论!').unbind('click');
+					return false;
+				}
+				$.each(data,function(i,element){
+					var nickname = element.nickname;
+					var content = element.content;
+					var time = element.time;
+					var imgpath = element.imgpath;
+					var info = $('<li class="comment"><div class="left"><img src="'+imgpath+'"></div><div class="right"><div>'+nickname+'</div><div></div>'+content+'</div></li><hr>');
+					$('#contentList').append(info);
+				});
+				var now = parseInt($('#last').val()) + 1;
+				$('#last').val(now);
+			}
+		});
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+#infoArea {
+    background: lightGreen;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+}
+
+#infoArea div {
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: blue;
+    font: bold;
+}
+
+#btn {
+    margin-top: 30px;
+}
+
+#bookList {
+    background: lightBlue;
+    position: absolute;
+    top: 330px;
+    left: 50%;
+    margin-left: -600px;
+    width: 1200px;
+}
+
+#bookList table {
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
+#bookList table tr th,td {
+    border-top: solid 1px red;
+    border-left: solid 1px red;
+    width: 200px;
+    text-align: center;
+}

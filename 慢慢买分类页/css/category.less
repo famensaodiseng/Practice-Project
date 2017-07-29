@@ -1,0 +1,72 @@
+@import url(color.less);
+
+#category{
+	padding: 10px;
+	>.panel-group{
+		>.panel{
+			margin: 0px;
+			border-radius: 0px;
+			>.panel-heading{
+				background-color: #ebebeb;
+				>.panel-title{
+					>a{
+						display: block;
+						position: relative;
+						color:black;
+						font-size: 18px;
+					}
+					>a:before{
+						content: "";
+						width: 30px;
+						height:7px;
+						position:absolute;
+						background-image: url("../images/arrow_up.gif");
+						background-size: 30px 7px;
+						background-repeat: no-repeat;
+						right: 0px;
+						top: 50%;
+						transform:translateY(-50%);
+					}
+					// >a[class=collapsed]:before{
+					// 	background-image: url("../images/arrow_down.gif");
+					// }
+					>a.collapsed:before{
+						background-image: url("../images/arrow_down.gif");
+					}
+				}
+			}
+			.panel-body{
+				padding: 0px;
+				>.row{
+					margin: 0px;
+					>div{
+						padding: 0px;
+						>a{
+							display: block;
+							padding: 10px;
+							text-align: center;
+							color: #333;
+							border: 1px solid @border-color;
+							border-left: 0px;
+						}
+					}
+					>div:nth-of-type(3n) {
+						>a{
+							border-right: 0px;
+						}
+						
+					}
+				}
+			}
+
+		}
+		>.panel:first-of-type{
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+		}
+		>.panel:last-of-type{
+			border-bottom-left-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+	}
+}

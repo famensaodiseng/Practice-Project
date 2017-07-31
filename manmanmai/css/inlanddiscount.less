@@ -1,0 +1,41 @@
+@import url(color.less);
+
+#product{
+	>.product-list{
+		display: flex;
+		flex-wrap:wrap;
+		>.product-item{
+			padding: 10px;
+			width: 50%;
+			border: 1px solid @border-color;
+			text-align: center;
+			height: 289px;
+			>img{
+				width: 140px;
+				height: 140px;
+			}
+			>.product-name{
+				text-align: left;
+			}
+			>.product-price{
+				text-align: left;
+			}
+			>.from-time{
+				text-align: left;
+			}
+		}
+	}
+	>.loading-info{
+		background-color: #f8f8f8;
+		text-align: center;
+		padding: 10px;
+		>img{
+			width: 35px;
+			height: 35px;
+		}
+		>.loading-tips{
+			display: none;
+			padding: 10px;
+		}
+	}
+}

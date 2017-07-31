@@ -1,0 +1,3 @@
+#product > nav > .breadcrumb > li + li:before {
+  content: " > ";
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 配置视口 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 先把bootstrap的css文件引入进来 -->
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+    <!-- 自己写的less文件 
+        引入自己写的less文件，rel的值
+    -->
+    <link rel="stylesheet/less" href="css/common_section.less">
+    <link rel="stylesheet/less" href="css/inlanddiscount.less">
+    <!-- 引入less.js 这个文件会帮我们进行*.less文件的编译，生成css内容
+            less.js这个文件的引入，一定要在我们自己写的less文件之后
+
+            浏览器根本就识别不了less文件，需要进行编译
+            1、使用less.js进行编译
+            2、使用编辑工具webstrom带的编译功能
+
+            less的好处：可以定义变量,别忘了引入import
+                        样式的定义更具有层次性
+     -->
+    <script type="text/javascript" src="libs/less/less.js"></script>
+    <!-- 配置的模板需要注意:1、type必须是text/html  2、需要配置一个id -->
+    <script type="text/html" id="inlanddiscount-product-list-template">
+        {{each result as value i}}
+            <div class="product-item">
+                {{#value.productImg}}
+                <div class="product-name">{{value.productName}}</div>
+                <div class="product-price">{{value.productPrice}}</div>
+                <div class="from-time">{{value.productFrom}}|{{value.productTime}}</div>
+            </div>
+        {{/each}}
+    </script>
+    <title>国内折扣</title>
+</head>
+
+<body>
+    <!-- 头部 
+        语义化标签的使用
+        语义化标签存在兼容性问题：引入html5shiv.js库
+    -->
+    <header id="header" class="back"></header>
+    <!-- 商品 -->
+    <section id="product">
+        <div class="product-list">
+        </div>
+        <div class="loading-info">
+            <img src="images/loading.gif" alt="">
+            <div class="loading-tips">所有数据都已经加载完成</div>
+        </div>
+    </section>
+    <!-- 底部 -->
+    <footer id="footer">
+    </footer>
+</body>
+<!-- bootstrap.js依赖于jquery.js  所以需要先引入jquery.js 
+
+    bootstrap.css jquery.js  bootstrap.js这三个文件的顺序不能错
+    jquery.js bootstrap.js这两个js文件的引入最好放在文档的末尾处
+    -->
+<script type="text/javascript" src="libs/jquery/jquery.js"></script>
+<script type="text/javascript" src="libs/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="libs/template/template.js"></script>
+<!-- 这里写的就是这个界面.js文件 -->
+<script type="text/javascript" src="js/common_section.js"></script>
+<script type="text/javascript" src="js/inlanddiscount.js"></script>
+
+</html>

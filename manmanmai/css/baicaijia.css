@@ -1,0 +1,35 @@
+#product > .baicaijia-title {
+  overflow: hidden;
+}
+#product > .baicaijia-title > ul {
+  list-style: none;
+  width: 1000px;
+  height: 50px;
+  padding: 0px;
+}
+#product > .baicaijia-title > ul > li {
+  float: left;
+}
+#product > .baicaijia-title > ul > li > a {
+  width: 100px;
+  height: 50px;
+  display: block;
+  border: 1px solid #e6e6e6;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  text-decoration: none;
+}
+#product > .baicaijia-title > ul > li > a.haha {
+  color: red;
+}
+#product > .baicaijia-title > ul > li > a.haha:before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: #f00;
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+}

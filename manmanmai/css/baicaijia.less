@@ -1,0 +1,38 @@
+@import url(color.less);
+#product {
+	>.baicaijia-title{
+		overflow: hidden;
+		>ul{
+			list-style: none;
+			width: 1000px;
+			height: 50px;
+			padding: 0px;
+			>li{
+				float: left;
+				>a{
+					width: 100px;
+					height: 50px;
+					display: block;
+					border: 1px solid @border-color;
+					text-align: center;
+					line-height: 50px;
+					position: relative;
+					text-decoration: none;
+				}
+				>a.haha{
+					color: red;
+				}
+				>a.haha:before{
+					content: "";
+					width:30px;
+					height: 3px;
+					background-color: #f00;
+					position: absolute;
+					bottom: 1px;
+					left: 50%;
+					transform:translateX(-50%);
+				}
+			}
+		}
+	}
+}

@@ -1,14 +1,36 @@
 $(function() {
 
+    // var headerElement1 = $("#header12312312312");
+    // console.log(headerElement1);
+
     var headerElement = $("#header");
-    if (headerElement) {
+    console.log(headerElement);
+
+    if (headerElement.length >= 1) {
         var headerTag = '';
-        headerTag += '<a class="logo" href="m.manmanbug.com">';
-        headerTag += '	<img src="images/header_logo.png" alt="">';
-        headerTag += '</a>';
+
+        //1、jquery  attr
+        //2、元素dom   className   classList
+        var className = headerElement.attr("class");
+
+        //console.log(headerElement.get(0).classList);
+
+        if(className && className == "back") {
+            var titleName = document.title;
+            headerTag += '<a class="back" href="javascript:history.back()">';
+            // headerTag += '  <img src="images/back.png"">';
+            headerTag += '</a>';
+            headerTag += '<span class="title">'+titleName+'</span>';
+        } else {
+            headerTag += '<a class="logo" href="m.manmanbug.com">';
+            headerTag += '  <img src="images/header_logo.png" alt="">';
+            headerTag += '</a>';
+        }
         headerTag += '<a class="app" href="#">';
-        headerTag += '	<img src="images/header_app.png" alt="">';
+        headerTag += '  <img src="images/header_app.png" alt="">';
         headerTag += '</a>';
+
+        
         headerElement.append(headerTag);
     }
 

@@ -1,7 +1,7 @@
 @import url(color.less);
 #header{
-	height: 80px;
-	background-color: red;
+	height: 50px;
+	background-color: @title-background-color;
 	position: relative;
 
 	>.logo{
@@ -24,6 +24,32 @@
 			width: 34px;
 			height: 34px;
 		}
+	}
+	>.back{
+		position: absolute;
+		left: 10px;
+		top: 50%;
+		padding: 10px;
+		width: 50px;
+		height: 50px;
+		transform:translateY(-50%);
+		background-image: url("../images/icon_bar.png");
+		background-position: -94px -6px;
+		background-size: 220px 132px;
+		background-clip: content-box;
+		background-origin: content-box;
+		>img{
+			width: 30px;
+			height: 30px;
+		}
+	}
+	>.title{
+		color: white;
+		font-size: 18px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform:translate(-50%,-50%);
 	}
 }
 

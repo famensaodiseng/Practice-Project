@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TodoMVC杨方涛</title>
+		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
+		<link rel="icon" href="libs/bit.ico">
+		<!-- CSS overrides - remove if you don't need it -->
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body ng-app="todosApp" ng-controller="todosController">
+		<section class="todoapp">
+			<header class="header">
+				<h1>小杨任务管理器</h1>
+				<form ng-submit='add()'>
+					<input ng-model='newTodo' class="new-todo" placeholder="What needs to be done?" autofocus>
+				</form>
+			</header>
+			<!-- This section should be hidden by default and shown when there are todos -->
+			<section class="main">
+				<input
+						ng-change="toggleAll()"
+						ng-model="selectAll" class="toggle-all" type="checkbox">
+				<label for="toggle-all">Mark all as complete</label>
+				<ul class="todo-list">
+					<li ng-class="{editing:isEditingId == item.id,completed:item.completed}" ng-repeat="item in todos|filter:isCompleted">
+						<div class="view">
+							<input ng-model="item.completed" class="toggle" type="checkbox">
+							<label ng-dblclick="edit(item.id)">{{item.name}}</label>
+							<button ng-click="remove(item.id)" class="destroy"></button>
+						</div>
+
+						<form ng-submit="save()">
+							<input class="edit" ng-model="item.name">
+						</form>
+					</li>
+				</ul>
+			</section>
+			<!-- This footer should hidden by default and shown when there are todos -->
+			<footer class="footer">
+				<!-- This should be `0 items left` by default -->
+				<span class="todo-count"><strong>{{getActive()}}</strong> item left</span>
+				<!-- Remove this if you don't implement routing -->
+				<ul class="filters">
+					<li>
+						<a ng-class="{selected:isCompleted.completed==undefined}" href="#/" ng-click="all()">All</a>
+					</li>
+					<li>
+						<a  ng-class="{selected:isCompleted.completed==false}" href="#/active" ng-click="active()">Active</a>
+					</li>
+					<li>
+						<a  ng-class="{selected:isCompleted.completed==true}"  href="#/completed" ng-click="completed()">Completed</a>
+					</li>
+				</ul>
+				<!-- Hidden if no completed items are left ↓ -->
+				<button ng-click="clearAll()" class="clear-completed">Clear completed</button>
+			</footer>
+
+		</section>
+		<footer class="info">
+			<p>用angular写的一个demo</p>
+			<!-- Remove the below line ↓ -->
+			<p>Template by <a href="http://sindresorhus.com">创作于2017.8.9</a></p>
+			<!-- Change this out with your name and url ↓ -->
+			<p>Created by <a href="http://todomvc.com">you</a></p>
+			<p>Part of <a href="http://github.com/famensaodiseng">&copy;杨方涛</a></p>
+		</footer>
+		<!-- Scripts here. Don't remove ↓ -->
+		<script src ="libs/angular.js"></script>
+		<script src="js/app.js"></script>
+
+	</body>
+</html>

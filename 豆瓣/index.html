@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>电影展示</title>
+    <link rel="icon" href="assets/img/bit.ico">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/wap.css">
+</head>
+<body ng-app="main">
+
+<!-- 顶部导航栏开始 -->
+<div class="top">
+    <div class="header">
+        <a href="#/home_page"><img src="assets/img/111.png" alt=""></a>
+        <div class="search">
+            <input class="my-input" type="text" placeholder="电影搜索">
+            <button>搜索</button>
+        </div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <!--li中添加 active 类样式，显示焦点状态。-->
+            <li class="active"><a href="#/home_page">首页</a></li>
+            <li><a href="#/in_theaters">正在热映</a></li>
+            <li><a href="#/coming_soon">即将上映</a></li>
+            <li><a href="#/top250">Top250</a></li>
+        </ul>
+    </nav>
+</div>
+<!-- 顶部导航栏结束 -->
+<div class="container">
+    <div ng-view></div>
+
+
+
+    <!--其他-->
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>版权所有&copy; 法门扫地僧★点击加载哦</p>
+        <p>用angular做的一个豆瓣电影demo,后期待完善</p>
+    </div>
+</footer>
+    <script src="assets/js/prefixfree.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="home/home.js"></script>
+    <script src="in_theaters/in_theaters.js"></script>
+    <script src="coming_soon/coming_soon.js"></script>
+    <script src="top250/top250.js"></script>
+</body>
+
+</html>

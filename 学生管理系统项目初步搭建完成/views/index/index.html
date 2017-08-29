@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <?php include( './views/common/style.html' ) ?>
+</head>
+<body>
+    
+    <!-- 侧边栏 -->
+    <?php include( './views/common/aside.html' ) ?>
+    <!-- 主体 -->
+    <div class="main">
+        <div class="container-fluid">
+            <!-- 头部 -->
+            <?php include( './views/common/header.html' ) ?>
+            <!-- 个人资料 -->
+            <div class="body teacher-profile">
+                <div class="profile">
+                    <div class="row survey">
+                        <div class="col-md-3">
+                            <div class="cell money">
+                                <i class="fa fa-money"></i>
+                                <span>我的收入</span>
+                                <h5>￥11.11</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cell th">
+                                <i class="fa fa-th"></i>
+                                <span>课程数量</span>
+                                <h5>12</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cell user">
+                                <i class="fa fa-user"></i>
+                                <span>用户数量</span>
+                                <h5>236</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cell eye">
+                                <i class="fa fa-eye"></i>
+                                <span>浏览量</span>
+                                <h5>22435</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <div id="main" style="width: 600px;height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php include( './views/common/script.html' ) ?>
+</body>
+</html>

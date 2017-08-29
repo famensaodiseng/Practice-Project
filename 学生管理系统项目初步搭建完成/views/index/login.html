@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <link rel="stylesheet" href="../../assets/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../../assets/lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="../../assets/less/index.css">
+</head>
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <div class="avatar">
+                <img src="./uploads/monkey.png" class="img-circle" alt="">
+            </div>
+            <form id="formId" class="col-md-offset-1 col-md-10">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input type="text" name="tc_name" class="form-control" value="前端学院" placeholder="用户名">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input type="password" name="tc_pass" value="123456" class="form-control" placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../assets/lib/jquery/jquery-3.2.0.js"></script>
+    <script src="../../assets/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../assets/lib/jquery-cookie/jquery.cookie.js"></script>
+</body>
+<script>
+
+    $( '#formId' ).on( 'submit', function () {
+
+        // 1, 收集数据
+        var formData = $( this ).serialize();
+
+        // 2, 发送 ajax 请求
+        $.ajax({
+            url: '/api/login',
+            type: "post",
+            data: formData,
+            success: function ( info ) {
+
+                if ( info.code == 200 ) {
+                    alert( '登录成功' );
+
+                    // 保存数据到 cookie 中
+                    $.cookie( 'userInfo', JSON.stringify( info.result ), { path: '/' } );
+
+
+                    location.pathname = '/';
+                }
+            }
+        });
+
+
+        return false;
+    });
+</script>
+</html>
